@@ -1,6 +1,9 @@
 import { contextBridge, ipcRenderer } from "electron";
 
 const api = {
+  // Agent Identity
+  getAgentIdentity: () => ipcRenderer.invoke("agent:identity"),
+
   // Auth
   authGet: () => ipcRenderer.invoke("auth:get"),
   authLoginEmail: (email: string, password: string) =>

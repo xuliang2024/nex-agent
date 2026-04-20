@@ -15,6 +15,7 @@ import {
 import { exportTemplate, importTemplate } from "./template-packer.js";
 import type { SessionConfig, GlobalSettings } from "./store.js";
 import { getApizClient } from "@agent-desktop/core";
+import { AGENT_IDENTITY } from "../agent.config.js";
 
 let store: AppStore;
 let bridge: AgentBridge;
@@ -100,6 +101,11 @@ export function registerIPCHandlers() {
       }
     })();
   }
+
+  // --- Agent Identity ---
+  // 「分身身份卡」由 main 进程权威持有，renderer 通过此 IPC 拉取，
+  // 用于决定首屏路由、侧栏样式、是否弹启动横幅等。
+  ipcMain.handle("agent:identity", () => AGENT_IDENTITY);
 
   // --- Auth ---
   registerAuthHandlers(store, bridge);

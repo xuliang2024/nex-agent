@@ -1,6 +1,21 @@
+import { AGENT_IDENTITY } from "../agent.config.js";
+
 export const SYSTEM_MCP_ID = "__system_mcp__";
 
-export const BUILTIN_TEMPLATES = [
+/**
+ * 全部内置分身模板（多分身平台模式下加载全部）。
+ *
+ * 独立分身分支（mode === "single"）只会加载其中一条 —— 由
+ * `AGENT_IDENTITY.single.builtinTemplateId` 指定。新增 / 删除 / 修改
+ * 模板请仅在 `main` 分支动这个数组；分支若不需要某模板，**不要删数组项**，
+ * 而是通过修改 `agent.config.ts` 来过滤。
+ *
+ * 如此设计的好处：
+ *   - 各分支始终拿到同一份模板定义，main 上对模板 prompt 的改进可以
+ *     无冲突 cherry-pick 到分支
+ *   - 分身分支的差异化只剩 `agent.config.ts` 一个文件
+ */
+export const ALL_BUILTIN_TEMPLATES = [
   {
     id: "__builtin_assistant__",
     name: "通用助手",
@@ -367,3 +382,38 @@ export const BUILTIN_TEMPLATES = [
     },
   },
 ];
+
+/**
+ * 根据当前分身身份卡，返回该分身实际生效的模板列表。
+ *
+ * - mode === "platform"：返回 `ALL_BUILTIN_TEMPLATES` 全部
+ * - mode === "single"：仅返回 `single.builtinTemplateId` 对应的一条
+ *
+ * 若 single.builtinTemplateId 在 `ALL_BUILTIN_TEMPLATES` 中找不到（拼写错误
+ * 或被 main 删除），抛错让启动失败 —— 比静默吞掉强，避免分身没模板可用。
+ */
+export function getActiveBuiltinTemplates(): typeof ALL_BUILTIN_TEMPLATES {
+  if (AGENT_IDENTITY.mode === "single") {
+    const targetId = AGENT_IDENTITY.single?.builtinTemplateId;
+    if (!targetId) {
+      throw new Error(
+        "[agent.config] mode=single 时必须设置 single.builtinTemplateId",
+      );
+    }
+    const found = ALL_BUILTIN_TEMPLATES.filter((t) => t.id === targetId);
+    if (found.length === 0) {
+      throw new Error(
+        `[agent.config] 分身身份卡声明的 builtinTemplateId="${targetId}" ` +
+          `在 ALL_BUILTIN_TEMPLATES 中不存在；请检查 agent.config.ts 与 builtin-templates.ts`,
+      );
+    }
+    return found;
+  }
+  return ALL_BUILTIN_TEMPLATES;
+}
+
+/**
+ * 兼容旧导入方：保持 `BUILTIN_TEMPLATES` 命名稳定。
+ * 现有 `store.ts` / 其他 IPC 代码引用此变量时，会自动拿到当前分身生效的模板。
+ */
+export const BUILTIN_TEMPLATES = getActiveBuiltinTemplates();

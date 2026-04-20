@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useSessionStore } from "../../stores/session-store";
 import { useTemplateStore } from "../../stores/template-store";
+import { useIdentityStore } from "../../stores/identity-store";
 import { SessionItem } from "./SessionItem";
 import { UserMenu } from "../UserMenu";
 
@@ -18,17 +19,28 @@ export function Sidebar() {
   const currentTemplateId = useTemplateStore((s) => s.currentTemplateId);
   const setCurrentTemplateId = useTemplateStore((s) => s.setCurrentTemplateId);
   const templates = useTemplateStore((s) => s.templates);
+  const identity = useIdentityStore((s) => s.identity);
 
   const isSettings = location.pathname.startsWith("/settings");
   const isTemplates = location.pathname === "/templates";
   const isChat = location.pathname === "/chat";
 
-  const currentTemplate = templates.find((t) => t.id === currentTemplateId);
-  const templateSessions = sessions.filter((s) => s.templateId === currentTemplateId);
+  // 单分身模式下直接锁定到 identity 中声明的模板，不依赖 template-store 的 currentTemplateId
+  const isSingle = identity.mode === "single";
+  const effectiveTemplateId = isSingle
+    ? identity.single?.builtinTemplateId ?? null
+    : currentTemplateId;
+  const hideTemplateBackLink =
+    isSingle && (identity.single?.hideTemplateBackLink ?? true);
+
+  const currentTemplate = templates.find((t) => t.id === effectiveTemplateId);
+  const templateSessions = sessions.filter(
+    (s) => s.templateId === effectiveTemplateId,
+  );
 
   const handleNewSession = async () => {
-    if (!currentTemplateId) return;
-    await createSession(currentTemplateId);
+    if (!effectiveTemplateId) return;
+    await createSession(effectiveTemplateId);
     await loadSessions();
     navigate("/chat");
   };
@@ -85,15 +97,17 @@ export function Sidebar() {
     <aside className="w-64 flex-shrink-0 border-r border-zinc-800 flex flex-col bg-zinc-950">
       <div className="h-12 drag-region w-full flex-shrink-0" />
 
-      <div className="px-3 pb-1">
-        <button onClick={() => navigate("/templates")}
-          className="flex items-center gap-1.5 px-1 py-1 rounded-md text-xs text-zinc-500 hover:text-zinc-200 transition-colors">
-          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          {tt("backToList")}
-        </button>
-      </div>
+      {!hideTemplateBackLink && (
+        <div className="px-3 pb-1">
+          <button onClick={() => navigate("/templates")}
+            className="flex items-center gap-1.5 px-1 py-1 rounded-md text-xs text-zinc-500 hover:text-zinc-200 transition-colors">
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            {tt("backToList")}
+          </button>
+        </div>
+      )}
 
       {currentTemplate && (
         <div className="px-4 pb-2 flex items-center gap-2">
