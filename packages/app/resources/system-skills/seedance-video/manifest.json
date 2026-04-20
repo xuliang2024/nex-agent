@@ -1,0 +1,13 @@
+{
+  "name": "seedance-video",
+  "description": "字节 Seedance 文/图生视频（带音频）",
+  "tags": [
+    "视频生成",
+    "文生视频",
+    "图生视频",
+    "Seedance"
+  ],
+  "source": "local",
+  "version": "1.0.0",
+  "contentHash": "12cb5f85"
+}

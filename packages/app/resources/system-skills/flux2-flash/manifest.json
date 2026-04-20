@@ -1,0 +1,13 @@
+{
+  "name": "flux2-flash",
+  "description": "Flux 2 Flash 文生图/图编辑",
+  "tags": [
+    "图像生成",
+    "文生图",
+    "图像编辑",
+    "Flux"
+  ],
+  "source": "local",
+  "version": "1.0.0",
+  "contentHash": "006f4073"
+}

@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.mastra/
+*.db
+*.db-journal
+.env
+.DS_Store
+.git.old/
+.cursor/rules/cursor-loop.mdc
+.cursor/rules/backend-api.mdc
+.cursor/mcp.json
+packages/app/out/
+packages/app/release/

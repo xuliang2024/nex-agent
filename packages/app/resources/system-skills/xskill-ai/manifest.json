@@ -1,0 +1,13 @@
+{
+  "name": "xskill-ai",
+  "description": "通过 xskill.ai 生成 AI 图片、视频、语音，解析视频链接，管理账户",
+  "tags": [
+    "图片生成",
+    "视频生成",
+    "语音合成",
+    "多模型"
+  ],
+  "source": "local",
+  "version": "1.0.0",
+  "contentHash": "23036a6d"
+}

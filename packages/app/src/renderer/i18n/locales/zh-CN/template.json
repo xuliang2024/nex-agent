@@ -1,0 +1,23 @@
+{
+  "title": "我的分身",
+  "create": "创建分身",
+  "import": "导入分身",
+  "export": "导出",
+  "delete": "删除",
+  "newSession": "新会话",
+  "sessionCount": "{{count}} 个会话",
+  "noSessions": "暂无会话",
+  "backToList": "分身列表",
+  "createTitle": "创建新分身",
+  "saveAsTitle": "保存为分身",
+  "iconLabel": "选择图标",
+  "nameLabel": "分身名称",
+  "namePlaceholder": "输入分身名称",
+  "descLabel": "描述",
+  "descPlaceholder": "简要描述这个分身的用途",
+  "cancel": "取消",
+  "save": "保存",
+  "saving": "保存中...",
+  "saveAsNew": "保存为新分身",
+  "updateTemplate": "更新分身配置"
+}

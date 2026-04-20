@@ -1,0 +1,23 @@
+{
+  "title": "マイエージェント",
+  "create": "エージェント作成",
+  "import": "インポート",
+  "export": "エクスポート",
+  "delete": "削除",
+  "newSession": "新規セッション",
+  "sessionCount": "{{count}} セッション",
+  "noSessions": "セッションなし",
+  "backToList": "エージェント一覧",
+  "createTitle": "新規エージェント作成",
+  "saveAsTitle": "エージェントとして保存",
+  "iconLabel": "アイコン選択",
+  "nameLabel": "エージェント名",
+  "namePlaceholder": "エージェント名を入力",
+  "descLabel": "説明",
+  "descPlaceholder": "このエージェントの用途を簡単に説明",
+  "cancel": "キャンセル",
+  "save": "保存",
+  "saving": "保存中...",
+  "saveAsNew": "新規エージェントとして保存",
+  "updateTemplate": "エージェント設定を更新"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "宠物知识科普口播视频",
+  "description": "1 分钟宠物知识科普竖版口播视频（4×15s），Seedream v5 Lite + Seedance 2.0 omni_reference + ffmpeg 拼接",
+  "tags": [
+    "宠物",
+    "科普",
+    "口播",
+    "竖版",
+    "视频生成",
+    "xskill"
+  ],
+  "source": "system",
+  "version": "2.0.0",
+  "contentHash": "pk02a001"
+}

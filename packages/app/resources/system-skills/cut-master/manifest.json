@@ -1,0 +1,13 @@
+{
+  "name": "cut-master",
+  "description": "CapCut 国际版剪辑思维总指挥：5 步框架、3 大原则、轨道分层、时间线节奏、Skill 路由表",
+  "tags": [
+    "CapCut",
+    "剪辑思维",
+    "工作流",
+    "国际版"
+  ],
+  "source": "local",
+  "version": "1.0.0",
+  "contentHash": "8e0bcda0"
+}

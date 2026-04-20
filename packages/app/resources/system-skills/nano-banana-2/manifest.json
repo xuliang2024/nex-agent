@@ -1,0 +1,13 @@
+{
+  "name": "nano-banana-2",
+  "description": "Nano Banana 2 (Gemini 3.1 Flash) 快速生图",
+  "tags": [
+    "图像生成",
+    "文生图",
+    "Google",
+    "Gemini"
+  ],
+  "source": "local",
+  "version": "1.0.0",
+  "contentHash": "f16b5045"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "cut-draft",
+  "description": "cutcli CapCut 国际版草稿基础命令与参数完整速查",
+  "tags": [
+    "CapCut",
+    "视频编辑",
+    "字幕",
+    "国际版"
+  ],
+  "source": "local",
+  "version": "1.0.0",
+  "contentHash": "74e4fa89"
+}

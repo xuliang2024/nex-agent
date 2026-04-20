@@ -1,0 +1,8 @@
+{
+  "name": "播客对话合成",
+  "description": "设计多人播客对话脚本，使用 Gemini 3.1 Flash TTS 多说话人合成为自然语音",
+  "tags": ["播客", "对话", "语音合成", "TTS", "多说话人", "xskill"],
+  "source": "system",
+  "version": "1.0.0",
+  "contentHash": "pd01a001"
+}

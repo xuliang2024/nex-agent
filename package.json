@@ -1,0 +1,15 @@
+{
+  "name": "mastra-agent-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter @agent-desktop/app dev",
+    "build": "pnpm --filter @agent-desktop/core build && pnpm --filter @agent-desktop/app build",
+    "test": "pnpm --filter @agent-desktop/core test",
+    "test:watch": "pnpm --filter @agent-desktop/core test:watch"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["electron", "esbuild"]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "parse-video",
+  "description": "解析视频分享链接，获取无水印下载地址",
+  "tags": [
+    "视频下载",
+    "去水印",
+    "抖音",
+    "B站"
+  ],
+  "source": "local",
+  "version": "1.0.0",
+  "contentHash": "2560c362"
+}

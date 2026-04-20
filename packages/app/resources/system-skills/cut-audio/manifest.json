@@ -1,0 +1,15 @@
+{
+  "name": "cut-audio",
+  "description": "CapCut 国际版音频剪辑指南：4 角色分工、混音平衡、音画对位、节拍对齐、自动 ducking",
+  "tags": [
+    "CapCut",
+    "音频",
+    "BGM",
+    "混音",
+    "卡点",
+    "国际版"
+  ],
+  "source": "local",
+  "version": "1.0.0",
+  "contentHash": "a565dd65"
+}

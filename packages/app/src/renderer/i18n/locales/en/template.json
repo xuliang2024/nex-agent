@@ -1,0 +1,23 @@
+{
+  "title": "My Agents",
+  "create": "Create Agent",
+  "import": "Import",
+  "export": "Export",
+  "delete": "Delete",
+  "newSession": "New Session",
+  "sessionCount": "{{count}} sessions",
+  "noSessions": "No sessions",
+  "backToList": "Agent List",
+  "createTitle": "Create New Agent",
+  "saveAsTitle": "Save as Agent",
+  "iconLabel": "Choose Icon",
+  "nameLabel": "Agent Name",
+  "namePlaceholder": "Enter agent name",
+  "descLabel": "Description",
+  "descPlaceholder": "Briefly describe this agent's purpose",
+  "cancel": "Cancel",
+  "save": "Save",
+  "saving": "Saving...",
+  "saveAsNew": "Save as New Agent",
+  "updateTemplate": "Update Agent Config"
+}

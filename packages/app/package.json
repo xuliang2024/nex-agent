@@ -1,0 +1,47 @@
+{
+  "name": "@agent-desktop/app",
+  "version": "0.2.1",
+  "private": true,
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build && node scripts/build-worker.mjs",
+    "preview": "electron-vite preview",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@agent-desktop/core": "workspace:*",
+    "adm-zip": "^0.5.17",
+    "i18next": "^26.0.5",
+    "react-i18next": "^17.0.3",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.14.1",
+    "rehype-highlight": "^7.0.2",
+    "remark-gfm": "^4.0.1",
+    "tsx": "^4.19.4",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@electron/notarize": "^3.1.1",
+    "@tailwindcss/postcss": "^4.2.2",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/adm-zip": "^0.5.8",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
+    "@vitejs/plugin-react": "^4.5.2",
+    "autoprefixer": "^10.4.21",
+    "electron": "^36.3.1",
+    "electron-builder": "^26.0.12",
+    "electron-vite": "^3.1.0",
+    "esbuild": "^0.28.0",
+    "postcss": "^8.5.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^6.0.2",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4"
+  }
+}

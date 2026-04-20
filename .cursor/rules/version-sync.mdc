@@ -1,0 +1,18 @@
+# 版本号同步规则
+
+当修改 `packages/app/package.json` 中的 `version` 字段时，**必须同步修改**以下文件：
+
+- `packages/app/src/renderer/version.ts` — 更新 `APP_VERSION` 的值
+
+## 示例
+
+如果将 `package.json` 版本从 `0.2.0` 改为 `0.3.0`：
+
+```typescript
+// packages/app/src/renderer/version.ts
+export const APP_VERSION = "0.3.0";
+```
+
+## 原因
+
+electron-vite 的 `define` 配置无法在 renderer 中正确注入编译时常量，因此版本号通过独立模块管理，需要手动保持同步。

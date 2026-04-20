@@ -1,0 +1,13 @@
+{
+  "name": "ffmpeg",
+  "description": "FFmpeg 视频/音频格式转换、压缩、裁剪",
+  "tags": [
+    "FFmpeg",
+    "视频处理",
+    "音频处理",
+    "格式转换"
+  ],
+  "source": "local",
+  "version": "1.0.0",
+  "contentHash": "20a0c1e3"
+}

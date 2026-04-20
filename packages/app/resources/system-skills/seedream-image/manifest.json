@@ -1,0 +1,13 @@
+{
+  "name": "seedream-image",
+  "description": "字节 Seedream 4.5 文生图/图编辑",
+  "tags": [
+    "图像生成",
+    "文生图",
+    "Seedream",
+    "字节跳动"
+  ],
+  "source": "local",
+  "version": "1.0.0",
+  "contentHash": "f06d4000"
+}

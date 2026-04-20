@@ -1,0 +1,42 @@
+{
+  "name": "@agent-desktop/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts",
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./config/auth-types": {
+      "import": "./src/config/auth-types.ts",
+      "require": "./src/config/auth-types.ts",
+      "types": "./src/config/auth-types.ts",
+      "default": "./src/config/auth-types.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@ai-sdk/openai-compatible": "^2.0.41",
+    "@mastra/core": "^1.25.0",
+    "@mastra/libsql": "^1.8.1",
+    "@mastra/mcp": "^1.5.0",
+    "@mastra/memory": "^1.15.1",
+    "apiz-sdk": "^0.1.0",
+    "dotenv": "^17.4.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "typescript": "^6.0.2",
+    "vitest": "^3.2.1"
+  }
+}
