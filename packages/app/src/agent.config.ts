@@ -60,8 +60,29 @@ export interface AgentIdentity {
   };
 }
 
+/**
+ * ⚠️ 本文件在 `agent/capcut-editor` 分支被覆盖为 CapCut Agent 身份卡。
+ * main 分支保持 mode = "platform"，请勿将本配置 cherry-pick 回 main。
+ */
 export const AGENT_IDENTITY: AgentIdentity = {
-  mode: "platform",
-  appId: "com.nex-agent.app",
-  productName: "Nex Agent",
+  mode: "single",
+  appId: "com.nex-agent.capcut-editor",
+  productName: "CapCut Agent",
+  single: {
+    builtinTemplateId: "__builtin_video_editor__",
+    autoCreateSession: true,
+    skipTemplateList: true,
+    hideTemplateBackLink: true,
+  },
+  startupBanner: {
+    title: "本分身仅适配 CapCut 国际版",
+    body:
+      "CapCut Agent 生成的草稿使用 **CapCut 国际版** 的特效/动画/花字命名，需要在 **CapCut 桌面端**（非国内版剪映）打开。" +
+      "若你只装了国内版剪映（JianyingPro），打开草稿可能出现特效缺失、字幕样式异常或直接报错。",
+    dismissKey: "capcut-agent.banner.compat-warning",
+    level: "warn",
+  },
+  defaults: {
+    workspacePath: "~/Movies/CapCut/AgentWorkspace",
+  },
 };
