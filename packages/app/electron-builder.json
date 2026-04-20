@@ -17,7 +17,6 @@
   "afterSign": "./scripts/notarize.js",
   "mac": {
     "icon": "build/icon.icns",
-    "identity": "yi liu (3DP337K4T3)",
     "category": "public.app-category.productivity",
     "hardenedRuntime": true,
     "gatekeeperAssess": false,
